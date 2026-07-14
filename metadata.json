@@ -1,0 +1,6 @@
+{
+  "name": "World Cup Live",
+  "description": "Football app featuring live World Cup scores, standings, team details, player info via Wikipedia, and match highlights.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
