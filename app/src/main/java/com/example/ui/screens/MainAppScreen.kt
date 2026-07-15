@@ -1,5 +1,8 @@
 package com.example.ui.screens
 
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -320,8 +323,8 @@ fun SchedulesAndStandingsScreen(
             ) {
                 listOf(
                     "ALL" to "Tất cả",
-                    "GROUP" to "Vòng Bảng ",
-                    "PLAYOFF" to "Playoffs "
+                    "GROUP" to "Vòng Bảng",
+                    "PLAYOFF" to "Playoffs"
                 ).forEach { (code, label) ->
                     val isSelected = scheduleFilter == code
                     FilterChip(
@@ -374,7 +377,7 @@ fun SchedulesAndStandingsScreen(
 
                 if (upcoming.isNotEmpty()) {
                     item {
-                        SectionHeader(title = " LỊCH THI ĐẤU TIẾP THEO")
+                        SectionHeader(title = "LỊCH THI ĐẤU TIẾP THEO")
                     }
                     items(upcoming) { match ->
                         MatchCard(
@@ -388,7 +391,7 @@ fun SchedulesAndStandingsScreen(
 
                 if (finished.isNotEmpty()) {
                     item {
-                        SectionHeader(title = " ĐÃ KẾT THÚC HIGHLIGHTS")
+                        SectionHeader(title = "ĐÃ KẾT THÚC HIGHLIGHTS")
                     }
                     items(finished) { match ->
                         MatchCard(
@@ -423,8 +426,8 @@ fun SchedulesAndStandingsScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     listOf(
-                        "GROUP" to "Bảng Xếp Hạng Vòng Bảng ",
-                        "PLAYOFF" to "Nhánh Đấu Playoffs "
+                        "GROUP" to "Bảng Xếp Hạng Vòng Bảng",
+                        "PLAYOFF" to "Nhánh Đấu Playoffs"
                     ).forEach { (code, label) ->
                         val isSelected = standingsFilter == code
                         FilterChip(
@@ -573,7 +576,7 @@ fun PlayoffsBracketView(
     ) {
         item {
             Text(
-                text = "NHÁNH ĐẤU PLAYOFFS ",
+                text = "NHÁNH ĐẤU PLAYOFFS",
                 fontWeight = FontWeight.ExtraBold,
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary,
@@ -594,7 +597,7 @@ fun PlayoffsBracketView(
         if (finalMatch != null) {
             item {
                 PlayoffRoundSection(
-                    title = "🏆 CHUNG KẾT (FINAL)",
+                    title = "CHUNG KẾT (FINAL)",
                     match = finalMatch,
                     teams = teams,
                     onHighlightPlay = onHighlightPlay,
@@ -606,7 +609,7 @@ fun PlayoffsBracketView(
         if (semiMatches.isNotEmpty()) {
             item {
                 Text(
-                    text = "🤝 BÁN KẾT (SEMI-FINALS)",
+                    text = "BÁN KẾT (SEMI-FINALS)",
                     fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.secondary,
@@ -626,7 +629,7 @@ fun PlayoffsBracketView(
         if (quarterMatches.isNotEmpty()) {
             item {
                 Text(
-                    text = "🛡️ TỨ KẾT (QUARTER-FINALS)",
+                    text = "TỨ KẾT (QUARTER-FINALS)",
                     fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.tertiary,
@@ -1000,7 +1003,7 @@ fun MatchCard(
 
             Spacer(modifier = Modifier.height(8.dp))
             Text(
-                text = "Nhấn vào Quốc Kỳ để xem sân đấu",
+                text = "Nhấn vào Quốc Kỳ để xem thông tin sân vận động ",
                 style = MaterialTheme.typography.labelSmall.copy(
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
@@ -1024,7 +1027,7 @@ fun MatchCard(
                 ) {
                     Icon(imageVector = Icons.Default.PlayArrow, contentDescription = "Watch Highlights")
                     Spacer(modifier = Modifier.width(6.dp))
-                    Text("Xem Highlights Video 📺", fontWeight = FontWeight.Bold)
+                    Text("Xem Highlights Video", fontWeight = FontWeight.Bold)
                 }
             } else if (match.status == "LIVE") {
                 Text(
@@ -1550,7 +1553,7 @@ fun PlayerDetailsOverlay(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Thông Tin Cầu Thủ ", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleMedium)
+                Text(text = "Thông Tin Cầu Thủ", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleMedium)
                 IconButton(onClick = onDismiss) {
                     Icon(
                         imageVector = Icons.Default.Close,
@@ -1723,7 +1726,7 @@ fun PlayerDetailsOverlay(
                 } else if (wikiSummary != null) {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Text(
-                            text = "Tóm tắt Wikipedia ",
+                            text = "Tóm tắt Wikipedia",
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.sp,
                             color = MaterialTheme.colorScheme.primary
@@ -1788,7 +1791,7 @@ fun StadiumDetailsOverlay(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(text = "Thông Tin Sân Vận Động ", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleMedium)
+                Text(text = "Thông Tin Sân Vận Động", fontWeight = FontWeight.Bold, style = MaterialTheme.typography.titleMedium)
                 IconButton(onClick = onDismiss) {
                     Icon(
                         imageVector = Icons.Default.Close,
@@ -1859,7 +1862,7 @@ fun StadiumDetailsOverlay(
                 } else if (wikiSummary != null) {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Text(
-                            text = "Tóm tắt Wikipedia ",
+                            text = "Tóm tắt Wikipedia",
                             fontWeight = FontWeight.Bold,
                             fontSize = 13.sp,
                             color = MaterialTheme.colorScheme.primary
@@ -1910,7 +1913,7 @@ fun HighlightPlayerOverlay(
             }
         },
         title = {
-            Text("📺 Đang chiếu Highlight", fontWeight = FontWeight.Bold)
+            Text("Đang chiếu Highlight", fontWeight = FontWeight.Bold)
         },
         text = {
             Column(
@@ -1978,6 +1981,7 @@ fun AuthDialog(
     var isLoginTab by remember { mutableStateOf(true) }
     var username by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var passwordVisible by remember { mutableStateOf(false) }
     var fullName by remember { mutableStateOf("") }
     var isAdminRole by remember { mutableStateOf(false) }
     var errorMessage by remember { mutableStateOf("") }
@@ -2063,8 +2067,106 @@ fun AuthDialog(
                     onValueChange = { password = it },
                     label = { Text("Mật khẩu") },
                     modifier = Modifier.fillMaxWidth(),
-                    singleLine = true
+                    singleLine = true,
+                    visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
+                    trailingIcon = {
+                        val image = if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
+                        val description = if (passwordVisible) "Ẩn mật khẩu" else "Hiện mật khẩu"
+                        IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                            Icon(imageVector = image, contentDescription = description)
+                        }
+                    }
                 )
+
+                if (!isLoginTab && password.isNotEmpty()) {
+                    val hasMinLength = password.length >= 6
+                    val hasDigit = password.any { it.isDigit() }
+                    val hasSpecialOrUpper = password.any { it.isUpperCase() || !it.isLetterOrDigit() }
+
+                    val strengthScore = (if (hasMinLength) 1 else 0) + (if (hasDigit) 1 else 0) + (if (hasSpecialOrUpper) 1 else 0)
+                    val (strengthText, strengthColor) = when (strengthScore) {
+                        0 -> "Cực kỳ yếu " to Color(0xFFE57373)
+                        1 -> "Yếu " to Color(0xFFE57373)
+                        2 -> "Trung bình " to Color(0xFFFFB74D)
+                        else -> "Mạnh " to Color(0xFF81C784)
+                    }
+
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp),
+                        verticalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Text(
+                                text = "Độ bảo mật: $strengthText",
+                                style = MaterialTheme.typography.bodySmall.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    color = strengthColor
+                                )
+                            )
+                        }
+
+                        LinearProgressIndicator(
+                            progress = strengthScore.toFloat() / 3f,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(6.dp)
+                                .clip(RoundedCornerShape(3.dp)),
+                            color = strengthColor,
+                            trackColor = MaterialTheme.colorScheme.surfaceVariant
+                        )
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = if (hasMinLength) Icons.Filled.Check else Icons.Filled.Close,
+                                contentDescription = null,
+                                tint = if (hasMinLength) Color(0xFF4CAF50) else Color(0xFFE57373),
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "Mật khẩu tối thiểu 6 ký tự",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = if (hasMinLength) MaterialTheme.colorScheme.onSurface else Color.Gray
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = if (hasDigit) Icons.Filled.Check else Icons.Filled.Close,
+                                contentDescription = null,
+                                tint = if (hasDigit) Color(0xFF4CAF50) else Color(0xFFE57373),
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "Chứa ít nhất 1 chữ số",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = if (hasDigit) MaterialTheme.colorScheme.onSurface else Color.Gray
+                            )
+                        }
+
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = if (hasSpecialOrUpper) Icons.Filled.Check else Icons.Filled.Close,
+                                contentDescription = null,
+                                tint = if (hasSpecialOrUpper) Color(0xFF4CAF50) else Color(0xFFE57373),
+                                modifier = Modifier.size(16.dp)
+                            )
+                            Spacer(modifier = Modifier.width(4.dp))
+                            Text(
+                                text = "Chứa chữ in hoa hoặc ký tự đặc biệt",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = if (hasSpecialOrUpper) MaterialTheme.colorScheme.onSurface else Color.Gray
+                            )
+                        }
+                    }
+                }
 
                 if (!isLoginTab) {
                     Row(
@@ -2102,6 +2204,18 @@ fun AuthDialog(
                             }
                         }
                     } else {
+                        if (password.length < 6) {
+                            errorMessage = "Mật khẩu phải chứa ít nhất 6 ký tự."
+                            return@Button
+                        }
+                        if (!password.any { it.isDigit() }) {
+                            errorMessage = "Mật khẩu phải chứa ít nhất 1 chữ số."
+                            return@Button
+                        }
+                        if (!password.any { it.isUpperCase() || !it.isLetterOrDigit() }) {
+                            errorMessage = "Mật khẩu phải chứa ít nhất 1 chữ in hoa hoặc ký tự đặc biệt."
+                            return@Button
+                        }
                         val role = if (isAdminRole) "ADMIN" else "USER"
                         viewModel.register(username, password, role, fullName) { success, msg ->
                             if (success) {
@@ -2150,7 +2264,7 @@ fun CommunityScreen(viewModel: FootballViewModel) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = "BÀI VIẾT CỘNG ĐỒNG ",
+                text = "BÀI VIẾT CỘNG ĐỒNG 📣",
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 modifier = Modifier.weight(1f)
             )
@@ -2219,7 +2333,7 @@ fun CommunityScreen(viewModel: FootballViewModel) {
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = "Vui lòng đăng nhập từ thanh tiêu đề phía trên để có quyền đăng bài viết, chia sẻ hình ảnh và bình luận cùng mọi người!",
+                        text = "Vui lòng đăng nhập để có thể đăng bài viết, chia sẻ hình ảnh và bình luận cùng mọi người!",
                         style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
                         color = MaterialTheme.colorScheme.onPrimaryContainer
                     )
@@ -2810,7 +2924,7 @@ fun PostDetailDialog(
                             .padding(top = 8.dp)
                     ) {
                         Text(
-                            text = " Vui lòng đăng nhập để tham gia bình luận.",
+                            text = "Vui lòng đăng nhập để tham gia bình luận.",
                             style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
                             modifier = Modifier.padding(12.dp),
                             textAlign = TextAlign.Center
@@ -2857,7 +2971,7 @@ fun TeamForumView(
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
-                            text = "Chưa có cuộc thảo luận nào về tuyển ${team.name}. ",
+                            text = "Chưa có cuộc thảo luận nào về tuyển ${team.name}. Hãy bình luận đầu tiên để tiếp lửa cho đội tuyển!",
                             textAlign = TextAlign.Center,
                             style = MaterialTheme.typography.bodyMedium,
                             color = Color.Gray
@@ -2966,7 +3080,7 @@ fun TeamForumView(
                     .padding(top = 8.dp)
             ) {
                 Text(
-                    text = " Vui lòng đăng nhập để bình luận về đội tuyển.",
+                    text = "Vui lòng đăng nhập để bình luận.",
                     style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
                     modifier = Modifier.padding(12.dp),
                     textAlign = TextAlign.Center
@@ -3034,7 +3148,7 @@ fun ProfileScreen(
                         Spacer(modifier = Modifier.width(12.dp))
                         Column {
                             Text(
-                                text = currentUser?.fullName ?: "Người Dùng",
+                                text = currentUser?.fullName ?: "Khách hàng",
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                                 color = MaterialTheme.colorScheme.onPrimaryContainer
                             )
@@ -3076,7 +3190,7 @@ fun ProfileScreen(
                 if (currentUser == null) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
-                        text = "Hãy kết nối tài khoản để đồng bộ dữ liệu cá nhân của bạn, nhận thông báo về các trận đấu trực tiếp và lưu các tùy chọn yêu thích.",
+                        text = "Hãy kết nối tài khoản để đồng bộ dữ liệu cá nhân của bạn, nhận thông báo đẩy về các trận đấu trực tiếp và lưu các tùy chọn yêu thích .",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onPrimaryContainer.copy(alpha = 0.85f),
                         lineHeight = 16.sp
@@ -3094,7 +3208,7 @@ fun ProfileScreen(
                             modifier = Modifier.size(16.dp)
                         )
                         Text(
-                            text = "Đã kết nối tài khoản • Đồng bộ hoạt động tốt",
+                            text = "Đã kết nối tài khoản",
                             style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Medium),
                             color = Color(0xFF4CAF50)
                         )
@@ -3105,7 +3219,7 @@ fun ProfileScreen(
 
         // Favorites / Customization checklist section
         Text(
-            text = "TÙY CHỌN & ĐỒNG BỘ CÁ NHÂN ",
+            text = "TÙY CHỌN & ĐỒNG BỘ CÁ NHÂN",
             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(top = 4.dp, bottom = 2.dp)
@@ -3131,7 +3245,7 @@ fun ProfileScreen(
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
                         )
                         Text(
-                            text = "Tự động gửi các tùy chỉnh và bài đăng yêu thích.",
+                            text = "Tự động gửi các tùy chỉnh và bài đăng yêu thích .",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -3160,7 +3274,7 @@ fun ProfileScreen(
                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
                         )
                         Text(
-                            text = "Nhận thông báo đẩy về diễn biến (bàn thắng, thẻ phạt, chấn thương) thời gian thực.",
+                            text = "Nhận thông báo đẩy về diễn biến (bàn thắng, thẻ phạt, chấn thương) .",
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
@@ -3248,7 +3362,7 @@ fun ProfileScreen(
                     )
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(
-                        text = "Bạn đang trải nghiệm với tư cách khách. Các tùy chọn yêu thích sẽ không được lưu vĩnh viễn và không thể đồng bộ hóa giữa các thiết bị nếu không đăng nhập.",
+                        text = "Bạn đang trải nghiệm với tư cách người dùng. Các tùy chọn yêu thích sẽ không được lưu vĩnh viễn và không thể đồng bộ hóa giữa các thiết bị nếu không đăng nhập.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onErrorContainer
                     )
@@ -3272,7 +3386,7 @@ fun ProfileScreen(
                     )
                     Spacer(modifier = Modifier.width(12.dp))
                     Text(
-                        text = "Xin chào ${currentUser!!.fullName}! Bạn đã kết nối đồng bộ thành công với máy chủ World Cup Live. Tùy chọn yêu thích và các bài đăng thảo luận của bạn hiện đã được lưu trữ an toàn trên tài khoản đám mây.",
+                        text = "Xin chào ${currentUser!!.fullName}! Bạn đã kết nối đồng bộ thành công với máy chủ World Cup Live. Tùy chọn yêu thích và các bài đăng thảo luận của bạn hiện đã được lưu trữ an toàn trên tài khoản.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
@@ -3282,7 +3396,7 @@ fun ProfileScreen(
 
         // Liked and Saved Posts Section
         Text(
-            text = "BÀI VIẾT ĐÃ THÍCH & ĐÃ LƯU",
+            text = "BÀI VIẾT ĐÃ THÍCH & ĐÃ LƯU ",
             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(top = 8.dp, bottom = 2.dp)
@@ -3332,7 +3446,7 @@ fun ProfileScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = if (selectedTab == "liked") "Chưa có bài viết nào được yêu thích " else "Chưa có bài viết nào được lưu trữ 📑",
+                        text = if (selectedTab == "liked") "Chưa có bài viết nào được yêu thích" else "Chưa có bài viết nào được lưu trữ",
                         style = MaterialTheme.typography.bodyMedium.copy(color = Color.Gray),
                         textAlign = TextAlign.Center
                     )

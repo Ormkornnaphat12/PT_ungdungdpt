@@ -12,9 +12,11 @@ plugins {
 
 android {
   namespace = "com.example"
-  compileSdk { version = release(36) { minorApiLevel = 1 } }
+    compileSdk {
+        version = release(36)
+    }
 
-  defaultConfig {
+    defaultConfig {
     applicationId = "com.aistudio.worldcuptracker.jklmnq"
     minSdk = 24
     targetSdk = 36
@@ -82,6 +84,7 @@ android {
     buildConfig = true
   }
   testOptions { unitTests { isIncludeAndroidResources = true } }
+    buildToolsVersion = "28.0.3"
 }
 
 // Configure the Secrets Gradle Plugin to use .env and .env.example files
